@@ -1,7 +1,7 @@
 var user = require('../models/user');
 var skillz = require('../models/skillz');
 var secrets = require('../models/secrets');
-
+var userinfo = require('../models/user_info');
 
 module.exports = {
    getName: function(req, res, next){
@@ -33,7 +33,7 @@ module.exports = {
 
    getHobbyType: function(req, res, next){
     var filteredHob = user.hobbies.filter(function(val) {
-      return val.type == req.params. type;
+      return val.type == req.params.type;
     });
     res.status(200).json({ hobbies: filteredHob});
   },
@@ -53,7 +53,7 @@ module.exports = {
     var filteredFam = user.family.filter(function(val){
       return val.gender == req.params.gender;
     });
-    res.status(200).json({hobbies:filteredFam});
+    res.status(200).json({family:filteredFam});
   },
 
    getRestaurants: function(req, res, next){
@@ -62,7 +62,7 @@ module.exports = {
 
    getRestaurantsName: function(req, res, next){
     var filteredRest = user.restaurants.filter(function(val){
-      return val.name == req.params.gender;
+      return val.name == req.params.name;
     });
     res.status(200).json({restaurants: filteredRest});
   },
@@ -116,11 +116,11 @@ module.exports = {
   getSecrets: function(req, res, next){
     res.status(200).json({secrets: secrets});
   },
-  getSecretsDark: function(req, res, next){
-    var filteredSecret = secrets.secrets.filter(function(val){
-      return val.name == req.params.name;
-    });
-    res.status(200).json({secrets: filteredSecret});
-  }
+  // getSecretsDark: function(req, res, next){
+  //   var filteredSecret = secrets.secrets.filter(function(val){
+  //     return val.name == req.params.name;
+  //   });
+  //   res.status(200).json({secrets: filteredSecret});
+  // }
 
 }

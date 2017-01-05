@@ -17,7 +17,7 @@ module.exports = {
     {
       name: 'Rob',
       relation: 'Brother' ,
-      gender: 'M'
+      gender: 'F'
     },
     {
     name: 'Brian',

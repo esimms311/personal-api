@@ -1,5 +1,6 @@
 var user = require('../models/user');
 var skillz = require('../models/skillz');
+var userinfo = require('../models/user_info');
 module.exports = {
 
   addHeaders: function(req, res, next){
@@ -21,10 +22,11 @@ module.exports = {
   },
 
   verifyUser: function(req, res, next) {
-    if (req.params.name === 'test' && req.params.pin === '999') {
+    console.log(req.params);
+    if (req.params.username == userinfo.username && req.params.pin == userinfo.pin) {
       next();
     } else {
-      console.log('WrongO');
+      res.status(500).json('WrongO');
     }
   }
 }
